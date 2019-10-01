@@ -49,7 +49,12 @@ public class NumericalUtilities {
    }
    
    public static int isPrime (int num){
-       for(int i= 0;i<=num)
+       for(int i = 0;i<=num;i++){
+           if(num ==2){
+               System.out.println("O numero é primo");
+           }
+           else {
+               
+           }
    }
-}  
-    
+}     
