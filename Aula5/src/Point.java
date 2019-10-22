@@ -41,5 +41,6 @@ public class Point {
         double distancia = Math.sqrt(Math.pow(other.x - this.x,2)+ Math.pow(other.y -this.y,2));
         return distancia;
     }
+
     
 }

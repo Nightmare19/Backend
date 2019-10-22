@@ -14,7 +14,7 @@ public class Rectangle {
     private double width;
 
     public Rectangle() {
-        this.topLeftPoint = new Point();
+        this.topLeftPoint = new Point(5,6);
         height = 5.0;
         width = 6.0;
  
@@ -43,5 +43,25 @@ public class Rectangle {
     public void setWidth(double width) {
         this.width = width;
     }
+    
+    public double calculateBase(){
+        
+    }
+    
+    public double calculateArea(){
+        double base = calculateBase();
+        double altura =;
+        double area = altura * base; 
+        return area;
+    }
+    
+    public double calculatePerimetro(){
+        double base = ;
+        double altura = ;
+        double perimetro = (base*2) + (altura*2);
+        return perimetro;
+    }
+    
+    
     
 }

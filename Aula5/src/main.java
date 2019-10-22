@@ -12,10 +12,13 @@ public class main {
     public static void main(String[] args){
         Point a = new Point();
         Point b = new Point();
+        Point c = new Point();
         
         double dist = a.distanceTo(b);
         System.out.println(dist);
         
+        double base = Triangle.calculateBase();
+        System.out.println(base);
      
     }
 }
