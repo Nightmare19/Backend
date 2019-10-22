@@ -8,6 +8,6 @@
  *
  * @author Alexandre
  */
-class array {
+public class NewClass {
     
 }

@@ -8,6 +8,6 @@
  *
  * @author Alexandre
  */
-class array2 {
+public class Triangle {
     
 }

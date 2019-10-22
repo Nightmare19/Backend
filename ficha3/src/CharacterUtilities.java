@@ -79,12 +79,14 @@ public class CharacterUtilities {
         }
         return c;
     }
-    static char[]copyOfPartOf(char[]str, char[] array,char[] array2){
-        char[]result = new char[array2-array+1];
-        for(int i=array; i<=array2;i++){
-            result[i]=array[i];
+    public static char[] copyOfPartOf(char[] array, int indexStart, int indexEnd) {
+        char[] partOfArray = new char[(indexEnd - indexStart)+1];
+        int index = 0;
+        for (int i = indexStart; i <= indexEnd; i++) {
+            partOfArray[index] = array[i];
+            index++;
         }
-        return result;
+        return partOfArray;
     }
     
     
