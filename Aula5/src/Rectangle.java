@@ -13,12 +13,19 @@ public class Rectangle {
     private double height;
     private double width;
 
+
     public Rectangle() {
-        this.topLeftPoint = new Point(5,6);
+        this.topLeftPoint = new Point(5,0);
         height = 5.0;
         width = 6.0;
  
     }
+    public Rectangle(Point topLeftPoint, double height, double width){
+        this.topLeftPoint = topLeftPoint;
+        this.height= height;
+        this.width= width;
+    }
+
 
     public double getHeight() {
         return height;
@@ -43,25 +50,27 @@ public class Rectangle {
     public void setWidth(double width) {
         this.width = width;
     }
-    
-    public double calculateBase(){
-        
-    }
-    
+   
     public double calculateArea(){
-        double base = calculateBase();
-        double altura =;
-        double area = altura * base; 
+        double area = height * width; 
         return area;
     }
     
     public double calculatePerimetro(){
-        double base = ;
-        double altura = ;
-        double perimetro = (base*2) + (altura*2);
+
+        double perimetro = (width*2) + (height*2);
         return perimetro;
     }
     
-    
-    
+    public boolean contains(Point point){
+        boolean contains = false;
+        Point topRightCorner = new Point(topLeftPoint.getX()+ width, topLeftPoint.getY());
+        Point bottomRightCorner = new Point(topLeftPoint.getX()+ width,topLeftPoint.getY()-height);
+        Point bottomLeftCorner = new Point(topLeftPoint.getX(),topLeftPoint.getY()-height);
+        
+        if(point.getX()> topLeftPoint.getX() && point.getX()< topRightCorner.getX() && point.getY()>bottomRightCorner.getY() && point.getY()<topRightCorner.getY()){
+            contains = true;
+        }
+        return contains;
+    }
 }

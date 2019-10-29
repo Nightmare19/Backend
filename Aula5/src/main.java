@@ -5,20 +5,38 @@
  */
 
 /**
- *
+ * 
  * @author Alexandre
  */
 public class main {
     public static void main(String[] args){
-        Point a = new Point();
-        Point b = new Point();
-        Point c = new Point();
+        Point a = new Point(3,0);
+        Point b = new Point(2,6);
+        Point c = new Point(4,6);
+        Point topLeftPoint = new Point();
         
-        double dist = a.distanceTo(b);
-        System.out.println(dist);
+        Point p1 = new Point(3,1);
+        Point p2 = new Point(2,3);
         
-        double base = Triangle.calculateBase();
+        Triangle t = new Triangle(a,b,c);
+        
+        
+        double base = t.calculateBase();
         System.out.println(base);
+       
+        double area = t.calculateArea();
+        System.out.println(area);
+        
+        Rectangle r = new Rectangle(new Point(0,3),5,3);
+        System.out.println("Contains " + r.contains(p1));
+        
+        double perimetro = r.calculatePerimetro();
+        System.out.println(perimetro);
+        
+        
+        
+        
+    
      
     }
 }
