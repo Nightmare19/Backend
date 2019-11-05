@@ -29,4 +29,8 @@ public class Figure {
         return shapes;
     }
     
+    public void add (Shape shape){
+        this.shapes.add(shape);
+    }
+    
 }
