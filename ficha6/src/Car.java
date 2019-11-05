@@ -3,35 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ficha6;
+
 
 /**
  *
  * @author Alexandre
  */
-public class Motorcycle extends Vehicle {
+public class Car extends Vehicle{
+    private int door;
     
-    private int wheels;
-
-    public Motorcycle() {
+    public Car(){
         super();
-        this.wheels = 0;
+        this.door =0;
         
     }
 
-    public Motorcycle(int wheels, int year, String brand, String model, double price, String color) {
+    public Car(int door, int year, String brand, String model, double price, String color) {
         super(year, brand, model, price, color);
-        this.wheels = wheels;
+        this.door = door;
     }
-    
-    
     
 
     @Override
     public String toString() {
-        return "Esta Moto tem " + wheels + " pneus " + super.toString(); 
+        return "Este carro tem " + door + " portas " + super.toString(); 
     }
-    
     
     
 }
