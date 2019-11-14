@@ -20,11 +20,7 @@ class Catapult extends FightingForce{
         this.lucky = (double)(Math.random() * (1 - 0) + 1) + 0;
     }
 
-    
 
-   
-
-   
     
     @Override
     public String toString() {
