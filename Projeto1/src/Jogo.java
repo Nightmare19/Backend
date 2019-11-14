@@ -43,7 +43,7 @@ public class Jogo {
        
     }
 */
-    
+   /* 
     private void Main_menuCriar() {
         Main_menu[] Options = Main_menu.values();
         for (int i = 0; i < Options.length; i++) {
@@ -52,10 +52,10 @@ public class Jogo {
             System.out.println(name);
         }
     }
-    
+    */
     public static void main(String[] args) {
         
-        Main_menuCriar();
+        //Main_menuCriar();
         Jogo jogo = new Jogo();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------Menu----------------- ");
