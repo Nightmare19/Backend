@@ -22,8 +22,12 @@ public class Jogo {
         //ler teclado
        System.out.println("Introduza a quantidade de elementos da catapulta: ");
        
-        
+       System.out.println("Introduza a quantidade de elementos da cavalaria: ");      
+       System.out.println("Introduza a quantidade de elementos da infantaria: ");
+
         player = new Army(30, 20, 50, 50);
+        enemy = new Army(30, 20, 50, 50);
+       
     }
 
     private void InspectArmy() {
@@ -32,6 +36,9 @@ public class Jogo {
     }
 /*
     private void Play() {
+    
+        System.out.println("O JOGO COMEÇOU!!");
+        System.out.println("");
         int turn = 0;
         while(player.defense.size() != 0 || enemy.defense.size() != 0){
             if(turn == 0){
