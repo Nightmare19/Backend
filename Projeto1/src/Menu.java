@@ -13,4 +13,9 @@ public class Menu {
         CREATE_ARMY, INSPECT_ARMY, PLAY, QUIT;
     }
 
+    public static void printmenu(){
+        for (int i = 0; i < Command.values().length; i++) {
+            System.out.println((i+1)+". "+Command.values()[i]);
+        }
+    }
 }
