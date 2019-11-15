@@ -16,8 +16,7 @@ public class Army {
      private ArrayList<FightingForce> attackForce;
      private ArrayList<FightingForce> defenseForce;
 
-    Army(int catapult, int infantry, int cavalry, int side) {
-        
+    Army(int catapult, int infantry, int cavalry, int side) {        
         attackForce = new ArrayList<>();
         defenseForce = new ArrayList<>();
     }

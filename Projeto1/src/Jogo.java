@@ -22,8 +22,12 @@ public class Jogo {
         //ler teclado
        System.out.println("Introduza a quantidade de elementos da catapulta: ");
        
-        
+       System.out.println("Introduza a quantidade de elementos da cavalaria: ");      
+       System.out.println("Introduza a quantidade de elementos da infantaria: ");
+
         player = new Army(30, 20, 50, 50);
+        enemy = new Army(30, 20, 50, 50);
+       
     }
 
     private void InspectArmy() {
@@ -32,6 +36,9 @@ public class Jogo {
     }
 /*
     private void Play() {
+    
+        System.out.println("O JOGO COMEÇOU!!");
+        System.out.println("");
         int turn = 0;
         while(player.defense.size() != 0 || enemy.defense.size() != 0){
             if(turn == 0){
@@ -43,22 +50,14 @@ public class Jogo {
        
     }
 */
-   /* 
-    private void Main_menuCriar() {
-        Main_menu[] Options = Main_menu.values();
-        for (int i = 0; i < Options.length; i++) {
-            Main_menu[] Options = Options[i];
-            String name = Option.name();
-            System.out.println(name);
-        }
-    }
-    */
-    public static void main(String[] args) {
-        
-        //Main_menuCriar();
+
+
+    public static void main(String[] args){
         Jogo jogo = new Jogo();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------Menu----------------- ");
+        Menu.printmenu();
+        System.out.print("->");
         String line = scanner.nextLine();
         Menu.Command command = Menu.Command.valueOf(line);
         
