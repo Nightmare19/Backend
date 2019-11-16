@@ -1,4 +1,4 @@
-
+import java.util.Random;
 import java.util.Scanner;
 
 /*
@@ -19,40 +19,82 @@ public class Jogo {
     }
 
     private void CreateArmy() {
-        //ler teclado
-       System.out.println("Introduza a quantidade de elementos da catapulta: ");
-       
-       System.out.println("Introduza a quantidade de elementos da cavalaria: ");      
-       System.out.println("Introduza a quantidade de elementos da infantaria: ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("=====================================================================");
+        System.out.println("Introduza os elementos das unidades. Atenção!! No maximo 100 unidades");
+        System.out.println("Introduza a quantidade de elementos da catapulta: ");
+        String qcatapult = scanner.nextLine();
+        System.out.println("Introduza a quantidade de elementos da cavalaria: ");
+        String qinfantry = scanner.nextLine();
+        System.out.println("Introduza a quantidade de elementos da infantaria: ");
+        String qcavalry = scanner.nextLine();
+        int player_catapult;
+        int player_infantry;
+        int player_cavalry;
+        player_catapult = Integer.parseInt(qcatapult);
+        player_infantry = Integer.parseInt(qinfantry);
+        player_cavalry = Integer.parseInt(qcavalry);
 
-        player = new Army(30, 20, 50, 50);
-        enemy = new Army(30, 20, 50, 50);
-       
+        if (player_catapult + player_cavalry + player_infantry <= 100) {
+            player = new Army(player_catapult, player_infantry, player_cavalry, 50);
+        } else {
+            System.out.println("EXCEDEU O NÚMERO MÁXIMO DE ELEMENTOS!! ");
+            CreateArmy();
+        }
+        
+         /////////////////////parte enemy/////////////////////////////
+         Random enemy_catapult = new Random();
+         Random enemy_cavalry = new Random();
+         Random enemy_infantry = new Random();
+         enemy_catapult.nextInt(100);
+         enemy_cavalry.nextInt(100);
+         enemy_infantry.nextInt(100);
+         /*
+         if(enemy_catapult + enemy_cavalry + enemy_infantry <=100){
+         enemy = new Army(enemy_catapult, enemy_cavalry, enemy_infantry, 50);
+         }else{
+            
+         }
+        
+
+        
+        
+        
+         for (int i = 0; i < player_catapult; i++) {
+         if (random.next() * 100 < side) {
+         attack.add(new Catapult());
+         } else {
+         defense.add(new Catapult());
+         }
+
+         }
+         */
     }
 
     private void InspectArmy() {
         System.out.println(player.toString());
         System.out.println(enemy.toString());
     }
-/*
+
     private void Play() {
-    
+
         System.out.println("O JOGO COMEÇOU!!");
         System.out.println("");
         int turn = 0;
-        while(player.defense.size() != 0 || enemy.defense.size() != 0){
-            if(turn == 0){
-                player.attack(enemy);
-            } else {
-                enemy.attack(player);
-            }
-        }
-       
+        /*
+         while (player.defense.size() != 0 || enemy.defense.size() != 0) {
+         if (turn == 0) {
+         player.attack(enemy);
+         System.out.println(" Dano: " + attack);
+         } else {
+         enemy.attack(player);
+         System.out.println(" Dano: " + attack);
+         }
+         }
+         */
     }
-*/
 
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Jogo jogo = new Jogo();
         Scanner scanner = new Scanner(System.in);
         System.out.println("-----------------Menu----------------- ");
@@ -60,7 +102,6 @@ public class Jogo {
         System.out.print("->");
         String line = scanner.nextLine();
         Menu.Command command = Menu.Command.valueOf(line);
-        
         switch (command) {
             case CREATE_ARMY:
                 System.out.println("1. CREATE ARMY ");
@@ -72,13 +113,14 @@ public class Jogo {
                 break;
             case PLAY:
                 System.out.println("3. PLAY ");
+                jogo.Play();
                 break;
-               // jogo.Play();
             case QUIT:
                 System.out.println("4. QUIT ");
                 break;
 
         }
+
     }
 
 }

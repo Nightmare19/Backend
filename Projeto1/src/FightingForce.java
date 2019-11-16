@@ -8,7 +8,7 @@
  *
  * @author Alexandre
  */
-public abstract class FightingForce {
+public abstract class FightingForce{
     
     protected int attack;
     protected int defense;

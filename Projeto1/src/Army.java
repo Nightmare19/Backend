@@ -1,4 +1,4 @@
-
+import java.util.Random;
 import java.util.ArrayList;
 
 /*
@@ -21,6 +21,13 @@ public class Army {
         defenseForce = new ArrayList<>();
     }
 
+    Army(Random enemy_catapult, Random enemy_cavalry, Random enemy_infantry, int side) {
+        attackForce = new ArrayList<>();
+        defenseForce = new ArrayList<>();
+    }
+
+   
+
     @Override
     public String toString() {
         String output ="Força de Ataque: \n";
@@ -35,8 +42,5 @@ public class Army {
          
     }
     
-     
-    
-    
-    
+ 
 }
