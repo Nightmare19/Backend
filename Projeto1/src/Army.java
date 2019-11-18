@@ -22,7 +22,6 @@ public class Army {
 
        // System.out.println("=====================================================================");
         double percentagem_ataque = (double) side / 100;
-        double percentagem_defesa = 1 - percentagem_ataque;
         /////////////catapulta/////////////////
         int catapult_ataque = (int) (catapult * percentagem_ataque);
         int catapult_defesa = (int) (catapult - catapult_ataque);
@@ -88,9 +87,5 @@ public class Army {
         this.defenseForce = defenseForce;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 
 }

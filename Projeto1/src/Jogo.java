@@ -19,31 +19,33 @@ public class Jogo {
     }
 
     private void CreateArmy() {
-        Scanner create = new Scanner(System.in);
+        Scanner create = new Scanner(System.in);    
         System.out.println("=====================================================================");
         System.out.println("Tipos de unidades: ");
-        
+        System.out.println("Catapult: 100 (Ataque) 1 (Defesa)");
+        System.out.println("Infantry: 25 (Ataque) 75 (Defesa)");
+        System.out.println("Cavalry: 50 (Ataque) 50 (Defesa)");
         System.out.println("=====================================================================");
         System.out.println("Introduza os elementos das unidades. Atenção!! No maximo 100 unidades");
 
-        System.out.println("Introduza a quantidade de elementos da catapulta: ");
+        System.out.print("Introduza a quantidade de elementos da catapulta: ");
         int player_catapult = create.nextInt();
         if (player_catapult > 100 || player_catapult < 0) {
             System.out.println("EXCEDEU O NÚMERO MÁXIMO DE ELEMENTOS!! ");
             CreateArmy();
         }
 
-        System.out.println("Introduza a quantidade de elementos da infantaria: ");
+        System.out.print("Introduza a quantidade de elementos da infantaria: ");
         int player_infantry = create.nextInt();
         if (player_catapult + player_infantry > 100 || player_infantry < 0) {
             System.out.println("EXCEDEU O NÚMERO MÁXIMO DE ELEMENTOS!! ");
             CreateArmy();
         }
 
-        System.out.println("Introduza a quantidade de elementos da cavalaria: ");
+        System.out.print("Introduza a quantidade de elementos da cavalaria: ");
         int player_cavalry = create.nextInt();
         if (player_catapult + player_cavalry + player_infantry <= 100 || player_cavalry >= 0) {
-            System.out.println("Introduza a percentagem que pretende para o ataque: ");
+            System.out.print("Introduza a percentagem que pretende para o ataque: ");
             int player_percentagem = create.nextInt();
             player = new Army(player_catapult, player_infantry, player_cavalry, player_percentagem);
         } else {
@@ -71,31 +73,36 @@ public class Jogo {
     }
 
     private void InspectArmy() {
-        System.out.println("Player força de ataque: \n" + player.getAttackForce());
-        System.out.println("Player força de defesa: \n" + player.getDefenseForce());
+        System.out.println("Player força de ataque: \n" + player.getAttackForce() + "\nNumero total de elementos de ataque: " + player.getAttackForce().size());
+        System.out.println("Player força de defesa: \n" + player.getDefenseForce() + "\nNumero total de elementos de defesa: " + player.getDefenseForce().size());
         System.out.println("=====================================================");
-        System.out.println("Enemy força de ataque: \n" + enemy.getAttackForce());
-        System.out.println("Enemy força de defesa: \n" + enemy.getDefenseForce());
+        System.out.println("Enemy força de ataque: \n" + enemy.getAttackForce() + "\nNumero total de elementos de ataque: " + enemy.getAttackForce().size());
+        System.out.println("Enemy força de defesa: \n" + enemy.getDefenseForce() + "\nNumero total de elementos de defesa: " + enemy.getDefenseForce().size());
     }
 
     private void Play() {
 
-        System.out.println("O JOGO COMEÇOU!!\n");
-        double turn = (double) (0 + Math.random() * (1 - 0));
-        System.out.println(turn);
+        System.out.println("O JOGO COMEÇOU!!");
+        int round = 1;
 
         while (player.getDefenseForce().size() != 0 && enemy.getDefenseForce().size() != 0) {
+            float turn = (float) (0 + Math.random() * (1 - 0));
+            System.out.println("\n------- Ronda " + round++ + " -------");
             if (turn <= 0.5 && turn >= 0) {
                 System.out.println("Player ataca ");
                 player.attackForce(enemy.getDefenseForce(), player.getAttackForce());
-                System.out.println(" Dano: ");
+                System.out.println("Dano: " + player.fightingForce_soma(player.getAttackForce()));
             } else {
                 System.out.println("Enemy ataca ");
                 enemy.attackForce(player.getDefenseForce(), enemy.getAttackForce());
-                System.out.println(" Dano: " + enemy.getAttackForce());
+                System.out.println("Dano: " + enemy.fightingForce_soma(enemy.getAttackForce()));
             }
         }
-        System.out.println("\nE o vencedor é: " + (player.getDefenseForce().size() != 0 || enemy.getDefenseForce().size() != 0));
+        if (player.getDefenseForce().size() == 0) {
+            System.out.println("\nEnemy Wins");
+        }else{
+            System.out.println("\nPlayer Wins");
+        }
         System.out.println("=====================================================");
     }
 
@@ -133,7 +140,6 @@ public class Jogo {
                             sair_do_jogo = true;
                             break;
                         default:
-                            System.out.println("Numero introduzido errado!! ");
                             sair_do_jogo = true;
                             break;
                     }
