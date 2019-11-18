@@ -3,27 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Alexandre
  */
-class Cavalry extends FightingForce{
-    private int attack;
-    private int defense;
-    private double lucky;
+class Cavalry extends FightingForce {
 
-    public Cavalry(int attack, int defense, double lucky) {
-        this.attack = 50;
-        this.defense = 50;
-        this.lucky = (double)(Math.random() * (1 - 0) + 1) + 0;
+    public Cavalry() {
+        super(50, 50, (double) (Math.random() * (1 - 0) + 1) + 0);
     }
-    
-    
-    
+
     @Override
     public String toString() {
-        return "Cavalry: " + "Attack("+ attack + ") " + "Defense(" +defense + ")";
+        return "Cavalry: " + "Attack(" + attack + ") " + "Defense(" + defense + ") ";
     }
-    
+
 }

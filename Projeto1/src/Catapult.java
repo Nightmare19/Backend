@@ -3,29 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Alexandre
  */
-class Catapult extends FightingForce{
-    
-    private int attack ;
-    private int defense;
-    private double lucky;
+class Catapult extends FightingForce {
 
-    public Catapult(int attack, int defense, double lucky) {
-        this.attack = 100;
-        this.defense = 1;
-        this.lucky = (double)(Math.random() * (1 - 0) + 1) + 0;
+    public Catapult() {
+        super(100, 1, (double) (Math.random() * (1 - 0) + 1) + 0);
     }
 
-   
-
-    
     @Override
     public String toString() {
-        return "Catapult: " + "Attack("+ attack + ") " + "Defense(" +defense + ")";
+        return "Catapult: " + "Attack(" + attack + ") " + "Defense(" + defense + ")";
     }
-    
+
 }
