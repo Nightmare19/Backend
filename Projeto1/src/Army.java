@@ -58,6 +58,9 @@ public class Army {
         for (int i = 0; i < attack.size(); i++) {
             contador += attack.get(i).attack * attack.get(i).lucky;
         }
+        for (int i = 0; i < attack.size();i++) {
+            attack.get(i).lucky=(attack.get(i).attack * attack.get(i).lucky);
+        }
         return contador;
     }
 
