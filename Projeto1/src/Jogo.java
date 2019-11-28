@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 
@@ -19,15 +20,20 @@ public class Jogo {
     }
 
     private void CreateArmy() {
-        Scanner create = new Scanner(System.in);    
+        Scanner create = new Scanner(System.in);
         System.out.println("=====================================================================");
         System.out.println("Tipos de unidades: ");
         System.out.println("Catapult: 100 (Ataque) 1 (Defesa)");
         System.out.println("Infantry: 25 (Ataque) 75 (Defesa)");
         System.out.println("Cavalry: 50 (Ataque) 50 (Defesa)");
         System.out.println("=====================================================================");
+        System.out.print("Introduza a percentagem que pretende para o ataque: ");
+        int player_percentagem = create.nextInt();
+        if (player_percentagem < 0 || player_percentagem > 100) {
+            System.out.println("EXCEDEU O NÚMERO MÁXIMO DE PERCENTAGEM!! ");
+            CreateArmy();
+        }
         System.out.println("Introduza os elementos das unidades. Atenção!! No maximo 100 unidades");
-
         System.out.print("Introduza a quantidade de elementos da catapulta: ");
         int player_catapult = create.nextInt();
         if (player_catapult > 100 || player_catapult < 0) {
@@ -44,13 +50,12 @@ public class Jogo {
 
         System.out.print("Introduza a quantidade de elementos da cavalaria: ");
         int player_cavalry = create.nextInt();
-        if (player_catapult + player_cavalry + player_infantry <= 100 || player_cavalry >= 0) {
-            System.out.print("Introduza a percentagem que pretende para o ataque: ");
-            int player_percentagem = create.nextInt();
-            player = new Army(player_catapult, player_infantry, player_cavalry, player_percentagem);
-        } else {
+        if (player_catapult + player_cavalry + player_infantry > 100 || player_cavalry < 0) {
             System.out.println("EXCEDEU O NÚMERO MÁXIMO DE ELEMENTOS!! ");
             CreateArmy();
+        } else {
+            player = new Army(player_catapult, player_infantry, player_cavalry, player_percentagem);
+            System.out.println("Exército criado com sucesso!!");
         }
 
         /////////////////////parte enemy/////////////////////////////
@@ -100,7 +105,7 @@ public class Jogo {
         }
         if (player.getDefenseForce().size() == 0) {
             System.out.println("\nEnemy Wins");
-        }else{
+        } else {
             System.out.println("\nPlayer Wins");
         }
         System.out.println("=====================================================");
